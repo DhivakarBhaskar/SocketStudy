@@ -56,7 +56,7 @@ Socket programming finds applications in various domains, including web developm
 # Developed by: Dhivakar.B
 # Register no:212225040075
 ## Server:
-
+/*
 
 import socket
 s= socket.socket()
@@ -80,7 +80,7 @@ ack=c.recv(1024).decode()
 if ack: 
     print(ack)
 c.close()
-
+*/
 ## Output:
 
 <img width="1917" height="1198" alt="Screenshot 2026-07-25 114700" src="https://github.com/user-attachments/assets/18df2c47-4d45-489f-a8af-505c06ca5b43" />
