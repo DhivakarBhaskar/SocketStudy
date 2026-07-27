@@ -56,11 +56,12 @@ Socket programming finds applications in various domains, including web developm
 Server:
 
 import socket
-s=socket.socket()
+s= socket.socket()
 s.connect(('localhost',8000)) 
 print(s.getsockname())
 print(s.recv(1024).decode()) 
 s.send("acknowledgement recived from the server".encode())
+
 Client:
 import socket 
 from datetime import datetime 
