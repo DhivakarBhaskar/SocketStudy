@@ -52,42 +52,44 @@ Socket programming finds applications in various domains, including web developm
 3.	File Transfer Protocol: Protocols like FTP (File Transfer Protocol) utilize socket programming for transferring files between a client and a server.
 4.	Networked Games: Online multiplayer games rely on socket programming to facilitate communication between game clients and servers.
 5.	RPC mechanisms: which allow processes to execute code on a remote server, often use socket programming for communication.
-## Program:
-# Developed by: Dhivakar.B
-# Register no:212225040075
-## Server:
-```
 
+##Program
+Client:
+```
 import socket
-s= socket.socket()
-s.connect(('localhost',8000)) 
-print(s.getsockname())
-print(s.recv(1024).decode()) 
-s.send("acknowledgement recived from the server".encode())
-```
-
-## Client:
-```
-import socket 
-from datetime import datetime 
-s=socket.socket() 
-s.bind(('localhost',8000)) 
-s.listen(5) 
+s=socket.socket()
+s.bind(('localhost',8000))
+s.listen(5)
 c,addr=s.accept()
-print("Client Address : ",addr) 
-now = datetime.now() 
-c.send(now.strftime("%d/%m/%Y %H:%M:%S").encode())
-ack=c.recv(1024).decode() 
-if ack: 
-    print(ack)
-c.close()
+while True:
+    i=input("Enter a data: ")
+    c.send(i.encode())
+    ack=c.recv(1024).decode()
+    if ack:
+        print(ack)
+    else:
+        c.close()
+        break
 ```
-## Output:
 
-<img width="1917" height="1198" alt="Screenshot 2026-07-25 114700" src="https://github.com/user-attachments/assets/18df2c47-4d45-489f-a8af-505c06ca5b43" />
+Server:
+```
+import socket
+s=socket.socket()
+s.connect(('localhost',8000))
+while True:
+      print(s.recv(1024).decode())
+      s.send("Acknowledgement Recived".encode()) 
+```
 
+Output:
 
+Client:
 
+<img width="1470" height="559" alt="image" src="https://github.com/user-attachments/assets/4805bf13-5533-4c5e-95d7-3ce38684c176" />
+
+Server: 
+<img width="1356" height="657" alt="image" src="https://github.com/user-attachments/assets/0508729a-d013-4fb2-bfe1-e12a1ce536fc" />
 
 
 ## Result:
